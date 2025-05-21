@@ -1,0 +1,221 @@
+Baik FG! Di bawah ini adalah **script Git lengkap dan praktis** untuk kamu gunakan dalam pengembangan project PHP kamu, **beserta fungsi dari masing-masing perintah**. Script ini cocok dipakai dari awal project sampai upload ke GitHub.
+
+---
+
+## ✅ **1. Inisialisasi Project Git (Hanya Sekali Saat Awal)**
+
+```bash
+git init
+```
+
+📌 *Fungsi:* Mengubah folder project kamu jadi repository Git lokal.
+
+---
+
+## ✅ **2. Menambahkan Remote Repository (Hubungkan ke GitHub)**
+
+```bash
+git remote add origin https://github.com/username/nama-repo.git
+```
+
+📌 *Fungsi:* Menghubungkan repository lokal ke repository GitHub (ganti `username` dan `nama-repo` sesuai milikmu).
+
+---
+
+## ✅ **3. Mengecek Status Perubahan**
+
+```bash
+git status
+```
+
+📌 *Fungsi:* Melihat file apa saja yang berubah, belum di-track, atau siap di-commit.
+
+---
+
+## ✅ **4. Menambahkan Semua File ke Staging**
+
+```bash
+git add .
+```
+
+📌 *Fungsi:* Menambahkan semua perubahan file ke staging area (siap di-commit).
+
+---
+
+## ✅ **5. Commit Perubahan**
+
+```bash
+git commit -m "Deskripsi singkat perubahan, misal: Tambah fitur login dan register"
+```
+
+📌 *Fungsi:* Menyimpan snapshot perubahan dengan pesan penjelas.
+
+---
+
+## ✅ **6. Push ke GitHub**
+
+```bash
+git push -u origin main
+```
+
+📌 *Fungsi:* Mengirim commit dari lokal ke GitHub (asumsi branch kamu bernama `main`, jika `master`, ganti jadi `master`).
+
+---
+
+## ✅ **7. Tarik Perubahan Terbaru dari GitHub (Jika Bekerja Tim)**
+
+```bash
+git pull origin main
+```
+
+📌 *Fungsi:* Menarik perubahan terbaru dari remote GitHub ke lokal.
+
+---
+
+## ✅ **8. Buat Branch Baru (Jika Ingin Coba Fitur Baru)**
+
+```bash
+git checkout -b fitur-booking
+```
+
+📌 *Fungsi:* Membuat branch baru bernama `fitur-booking` dan langsung pindah ke sana.
+
+---
+
+## ✅ **9. Merge Branch ke `main` (Setelah Fitur Siap)**
+
+```bash
+git checkout main
+git merge fitur-booking
+```
+
+📌 *Fungsi:* Menggabungkan kode dari branch `fitur-booking` ke branch utama `main`.
+
+---
+
+## ✅ **10. Melihat Riwayat Commit**
+
+```bash
+git log --oneline
+```
+
+📌 *Fungsi:* Melihat ringkasan riwayat commit dengan ID singkat.
+
+---
+
+## ✅ **11. Menghapus File dari Git Tapi Tetap di Komputer**
+
+```bash
+git rm --cached nama_file.php
+```
+
+📌 *Fungsi:* Menghapus file dari Git tracking tapi tidak menghapus dari folder lokal.
+
+---
+
+## ✅ **12. .gitignore (Opsional Tapi Penting)**
+
+Buat file `.gitignore` dan isikan:
+
+```gitignore
+/vendor/
+.env
+*.log
+*.sql
+node_modules/
+```
+
+📌 *Fungsi:* Menghindari file sensitif atau tidak penting diunggah ke GitHub.
+
+---
+
+Kalau kamu mau, aku bisa bantu **buatkan file `.sh` (shell script)** biar kamu tinggal jalankan `./git-deploy.sh` setiap ingin push project. Ingin dibuatkan juga?
+
+Pertanyaan bagus FG! Kalau kamu ingin mengakses atau melanjutkan kerjaan dari **repo GitHub** kamu di **PC lain**, tinggal ikuti langkah-langkah ini:
+
+---
+
+## ✅ **Cara Mengakses Repo Git dari PC Lain (Clone Repository)**
+
+### 💻 **1. Pastikan Git sudah terinstall**
+
+Cek di terminal atau CMD:
+
+```bash
+git --version
+```
+
+Kalau belum ada, silakan install dari: [https://git-scm.com/downloads](https://git-scm.com/downloads)
+
+---
+
+### 📂 **2. Clone Repository GitHub ke PC Baru**
+
+Buka terminal / CMD dan masuk ke folder yang kamu inginkan, lalu jalankan:
+
+```bash
+git clone https://github.com/username/nama-repo.git
+```
+
+Ganti `username` dan `nama-repo` sesuai dengan milikmu.
+
+📌 *Fungsi:* Mengunduh (copy) semua isi repository GitHub kamu ke komputer baru, termasuk riwayat commit-nya.
+
+---
+
+### 📁 **3. Masuk ke Folder Project**
+
+```bash
+cd nama-repo
+```
+
+---
+
+### ⚙️ **4. Mulai Kerja Seperti Biasa**
+
+Kamu bisa langsung:
+
+* Jalankan project-nya (misalnya `php -S localhost:8000` kalau pakai PHP server)
+* Edit file
+* Commit dan push seperti biasa:
+
+```bash
+git add .
+git commit -m "Perubahan dari PC baru"
+git push origin main
+```
+
+---
+
+## 🛡️ **Tips Tambahan**
+
+### ✅ **Jika Repo-nya Private**
+
+Kamu harus login ke GitHub dari PC baru dan pakai:
+
+#### Opsi 1: HTTPS + Personal Access Token
+
+Saat diminta username dan password, gunakan:
+
+* **Username GitHub**
+* **Token GitHub** (gantikan password)
+
+Buat token di sini: [https://github.com/settings/tokens](https://github.com/settings/tokens)
+
+#### Opsi 2: SSH Key (lebih aman)
+
+Kalau kamu sering pindah-pindah PC, lebih baik pakai SSH key:
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "emailkamu@example.com"
+```
+
+Lalu tambahkan public key ke GitHub: [https://github.com/settings/keys](https://github.com/settings/keys)
+
+Kalau kamu mau, aku bisa bantu **konfigurasi Git + SSH di PC baru** juga.
+
+---
+
+Kalau kamu sudah berhasil **clone repo**, semua perubahan di PC manapun tinggal di-*push* ke GitHub, lalu *pull* dari PC lain.
+
+Mau aku bantu cek apakah token GitHub kamu sudah dibuat atau mau aku pandu setup SSH?

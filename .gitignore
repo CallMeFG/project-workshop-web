@@ -1,0 +1,4 @@
+# fodler dan file yang tidak ikut ke commit ke github
+*.log
+*.env
+*.sql

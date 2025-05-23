@@ -57,18 +57,6 @@ Terima kasih, FG! Sekarang mari kita bahas isi file **`login.php`** berdasarkan 
 
 ---
 
-## 🧠 Saran Peningkatan
-
-Kalau FG mau, kita bisa tambahkan fitur berikut ke `login.php`:
-
-* ✅ Tampilkan pesan error kalau login gagal
-* 👁️ Tombol "Lihat Password"
-* 🎨 Sedikit CSS biar lebih cantik
-
----
-
-Mau lanjut bahas file `AuthController.php` sekarang, FG? Biasanya file itu yang penting untuk proses autentikasi user login/logout/register.
-
 //register
 Siap, FG! Ini penjelasan **per baris** dari form HTML registrasi yang kamu buat:
 
@@ -149,4 +137,98 @@ Siap, FG! Ini penjelasan **per baris** dari form HTML registrasi yang kamu buat:
 
 ---
 
-Kalau kamu sudah punya file `AuthController.php`, aku bisa bantu jelaskan juga bagaimana proses `register()` bekerja secara backend. Mau lanjut ke situ?
+//ini untuk dashboard
+Berikut adalah penjelasan **baris demi baris** dari file `dashboard.php` yang kamu tunjukkan. File ini digunakan untuk halaman setelah pengguna berhasil login.
+
+---
+
+## 📄 `dashboard.php`
+
+### Baris 1
+
+```php
+<?php
+```
+
+☑️ Awal dari skrip PHP.
+
+---
+
+### Baris 2
+
+```php
+session_start();
+```
+
+☑️ Memulai session.
+📝 Wajib dipanggil sebelum kamu bisa akses `$_SESSION`.
+
+---
+
+### Baris 3–6
+
+```php
+if (!isset($_SESSION['user'])) {
+    header("Location: index.php");
+    exit();
+}
+```
+
+☑️ **Cek apakah user sudah login**:
+
+* Kalau belum login (variabel session `'user'` belum diset), arahkan ke halaman login (`index.php`).
+* `exit()` menghentikan eksekusi halaman agar tidak lanjut ke HTML bawahnya.
+
+---
+
+### Baris 7
+
+```php
+?>
+```
+
+☑️ Menutup bagian PHP agar bisa menampilkan HTML.
+
+---
+
+### Baris 8
+
+```php
+<h2>Selamat datang, <?php echo $_SESSION['user']; ?>!</h2>
+```
+
+☑️ Menampilkan teks ucapan selamat datang + nama user dari session.
+
+---
+
+### Baris 9
+
+```php
+<a href="index.php?action=logout">Logout</a>
+```
+
+☑️ Link untuk logout. Akan mengarahkan user ke `index.php` dengan parameter `action=logout`.
+
+📝 Biasanya akan dicek di `index.php` apakah `$_GET['action'] == 'logout'`, dan jika iya, maka dijalankan fungsi logout dari `AuthController`.
+
+---
+
+## 🧠 Kesimpulan
+
+| Fitur                      | Penjelasan                                                |
+| -------------------------- | --------------------------------------------------------- |
+| `session_start()`          | Mulai session agar data login tersimpan                   |
+| `isset($_SESSION['user'])` | Cek apakah user sudah login                               |
+| `header("Location: ...")`  | Redirect ke halaman login jika belum login                |
+| `$_SESSION['user']`        | Menyimpan data login user                                 |
+| Logout link                | Mengarah ke `index.php?action=logout` untuk memicu logout |
+
+---
+
+Kalau FG ingin, aku bisa bantu:
+
+* 🔁 Tambahkan komentar langsung di file PHP
+* 🗂️ Buatkan struktur folder lengkap dari semua file yang sudah ada
+* 💾 Siapkan dalam bentuk ZIP atau project siap deploy ke hosting (seperti InfinityFree)
+
+Ingin aku bantu ke arah mana dulu?

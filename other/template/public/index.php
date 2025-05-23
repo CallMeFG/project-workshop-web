@@ -1,5 +1,6 @@
 <?php
-require_once 'controller/AuthController.php';
+require_once '../app/controller/AuthController.php';
+include '../app/view/partials/nav.php'; // Tambahkan ini
 
 $action = $_GET['action'] ?? null;
 
@@ -12,7 +13,5 @@ if ($action === 'register' && $_SERVER['REQUEST_METHOD'] === 'POST') {
 } elseif ($action === 'logout') {
     $auth = new AuthController();
     $auth->logout();
-} else {
-    echo '<a href="view/register.php">Register</a> | <a href="view/login.php">Login</a>';
-}
+} 
 ?>

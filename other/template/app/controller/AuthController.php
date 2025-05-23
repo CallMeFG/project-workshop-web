@@ -1,6 +1,5 @@
 <?php
-require_once 'model/User.php';
-
+require_once __DIR__. '/../model/User.php';
 class AuthController {
     private $userModel;
 
@@ -21,7 +20,7 @@ class AuthController {
         if ($user) {
             session_start();
             $_SESSION['user'] = $user['username'];
-            header("Location: dashboard.php");
+            header("Location: ../app/view/dashboard.php");
             exit();
         } else {
             echo "Login gagal. Username atau password salah.";

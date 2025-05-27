@@ -12,7 +12,7 @@ session_start();
 </head>
 
 <body>
-    <header class="header">
+    <header class=" header">
         <nav class="nav">
             <div class="left">
                 <a href="#">
